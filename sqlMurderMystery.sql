@@ -4,3 +4,8 @@ crime scene report, but you somehow lost it. You vaguely remember that the crime
 ​murder​ that occurred sometime on ​Jan.15, 2018​ and that it took place in ​SQL City​. Start by 
 retrieving the corresponding crime scene report from the police department’s database.
 */
+
+-- Find the crime scene report
+SELECT * 
+FROM crime_scene_report 
+WHERE type = 'murder' AND date = 20180115 AND city = 'SQL City';        
