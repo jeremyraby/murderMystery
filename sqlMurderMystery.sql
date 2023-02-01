@@ -44,3 +44,22 @@ INTERVIEW TRANSCRIPT FOR SECOND WITNESS NAMED 'ANNABEL' & LIVES ON 'FRANKLIN AVE
 I saw the murder happen, and I recognized the killer from my gym when I was working out 
 last week on January the 9th.
 */
+
+-- Find gym member with member number starting with '48Z'
+SELECT
+	member.id,
+	member.name,
+	checkIn.check_in_date
+FROM get_fit_now_check_in checkIn
+LEFT JOIN get_fit_now_member member
+ON checkIn.membership_id = member.id
+WHERE 
+	checkIn.check_in_date = 20180109 AND
+	member.id LIKE '48Z%'
+
+/*
+SUSPECTS BASED ON GYM MEMBERSHIP ID WHO CHECKED IN 1/9/2018
+
+48Z7A	Joe Germuska
+48Z55	Jeremy Bowers
+*/
