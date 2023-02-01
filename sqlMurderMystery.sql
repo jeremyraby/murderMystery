@@ -101,3 +101,29 @@ final step with no more than 2 queries. Use this same INSERT statement with your
 to check your answer.
 */
 
+-- Check J. Bowers' interview transcript
+SELECT
+	person_id,
+	transcript
+FROM interview
+WHERE person_id = 67318;
+
+/*
+I was hired by a woman with a lot of money. I don't know her name but I know she's around 
+5'5" (65") or 5'7" (67"). She has red hair and she drives a Tesla Model S. I know that she 
+attended the SQL Symphony Concert 3 times in December 2017.
+*/
+
+-- Find women matching physical description and driving a Tesla Model S
+SELECT
+	person.id,
+	person.name
+FROM person
+LEFT JOIN drivers_license
+ON person.license_id = drivers_license.id
+WHERE 
+	drivers_license.gender = 'female' AND
+	drivers_license.hair_color = 'red'AND
+	drivers_license.height BETWEEN 65 AND 67 AND
+	drivers_license.car_make = 'Tesla' AND
+	drivers_license.car_model = 'Model S'
