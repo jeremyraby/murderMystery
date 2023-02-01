@@ -63,3 +63,33 @@ SUSPECTS BASED ON GYM MEMBERSHIP ID WHO CHECKED IN 1/9/2018
 48Z7A	Joe Germuska
 48Z55	Jeremy Bowers
 */
+
+-- Find J. Germuska's & J. Bowers' person IDs
+SELECT
+	person.id AS 'person id',
+	member.id AS 'member id',
+	member.name
+FROM get_fit_now_member member
+LEFT JOIN person
+ON member.person_id = person.id
+WHERE 
+	member.id = '48Z7A' OR member.id = '48Z55';
+
+-- 67318 Jeremy Bowers
+-- 28819 Joe Germuska
+
+-- Compare J. Germuska's & J. Bowers' person IDs to their license plates
+SELECT
+	person.id,
+	person.name,
+	dLic.plate_number
+FROM person
+LEFT JOIN drivers_license dLic
+ON dLic.id = person.license_id
+WHERE 
+	person.name LIKE '%Bowers' OR 
+	person.name LIKE '%Germuska'AND
+	dLic.plate_number LIKE '%H42W%';
+
+-- 67318 Jeremy Bowers 0H42W2
+
