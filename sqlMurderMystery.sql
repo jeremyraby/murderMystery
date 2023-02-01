@@ -8,4 +8,39 @@ retrieving the corresponding crime scene report from the police department’s d
 -- Find the crime scene report
 SELECT * 
 FROM crime_scene_report 
-WHERE type = 'murder' AND date = 20180115 AND city = 'SQL City';        
+WHERE type = 'murder' AND date = 20180115 AND city = 'SQL City';
+
+/*
+CRIME SCENE REPORT DESCRIPTION
+Security footage shows that there were 2 witnesses. The first witness lives at the last 
+house on "Northwestern Dr". The second witness, named Annabel, lives somewhere on 
+"Franklin Ave".
+*/
+
+-- Find the witness interviews 
+SELECT
+	pers.id,
+	pers.name,
+	ints.transcript
+FROM interview ints
+LEFT JOIN person pers
+ON ints.person_id = pers.id
+WHERE
+	(pers.name LIKE 'Annabel%' AND pers.address_street_name = 'Franklin Ave') OR 
+	pers.address_street_name = 'Northwestern Dr';
+
+/*
+INTERVIEW TRANSCRIPT FOR FIRST WITNESS ON 'Northwestern Dr.' (Morty Schapiro)
+
+I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. The 
+membership number on the bag started with "48Z". Only gold members have those bags. 
+The man got into a car with a plate that included "H42W".
+*/
+
+/*
+INTERVIEW TRANSCRIPT FOR SECOND WITNESS NAMED 'ANNABEL' & LIVES ON 'FRANKLIN AVE'
+(Annabel Miller)
+
+I saw the murder happen, and I recognized the killer from my gym when I was working out 
+last week on January the 9th.
+*/
