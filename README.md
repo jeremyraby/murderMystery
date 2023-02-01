@@ -2,7 +2,7 @@
 
 ## About
 
-This is a collection of notes and the queries I used to solve the [SQL Murder Mystery](https://mystery.knightlab.com/). I tried to think through it step-by-step and document my process along with the actual queries. 
+This is a collection of notes and the queries I used to solve the [SQL Murder Mystery](https://mystery.knightlab.com/). I tried to think through it step-by-step and document my process along with the actual queries.
 
 ## Thoughts
 
