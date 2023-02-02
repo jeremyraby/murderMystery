@@ -126,7 +126,7 @@ WHERE
 	drivers_license.hair_color = 'red'AND
 	drivers_license.height BETWEEN 65 AND 67 AND
 	drivers_license.car_make = 'Tesla' AND
-	drivers_license.car_model = 'Model S'
+	drivers_license.car_model = 'Model S';
 
 /*
 id	name
@@ -136,4 +136,14 @@ id	name
 */
 
 -- Check which suspect attended SQL Symphony Concert x3 in Dec 2017
-
+SELECT
+	person.id,
+	person.name,
+	facebook_event_checkin.date
+FROM person
+LEFT JOIN facebook_event_checkin
+ON person.id = facebook_event_checkin.person_id
+WHERE
+	person.name
+	IN ('Red Korb', 'Regina George', 'Miranda Priestly') AND
+	facebook_event_checkin.date LIKE '201712%';
