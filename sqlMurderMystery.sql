@@ -127,3 +127,13 @@ WHERE
 	drivers_license.height BETWEEN 65 AND 67 AND
 	drivers_license.car_make = 'Tesla' AND
 	drivers_license.car_model = 'Model S'
+
+/*
+id	name
+78881	Red Korb
+90700	Regina George
+99716	Miranda Priestly
+*/
+
+-- Check which suspect attended SQL Symphony Concert x3 in Dec 2017
+
